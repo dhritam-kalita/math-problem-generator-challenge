@@ -5,7 +5,12 @@ MIN_OPERAND = 3
 MAX_OPERAND = 12
 OPERATORS = ('+', '-', '*')
 TOTAL_PROBLEMS = 10
-
+def take_input_param():
+    global MIN_OPERAND, MAX_OPERAND, TOTAL_PROBLEMS
+    MIN_OPERAND = input(f"Enter the minimum operand: ")
+    MAX_OPERAND = input("Enter the maximum operand: ")
+    TOTAL_PROBLEMS = input("Enter the total number of problems: ")
+    
 def generate_problem():
     operand_1 = randint(MIN_OPERAND, MAX_OPERAND)
     operand_2 = randint(MIN_OPERAND, MAX_OPERAND)
@@ -16,7 +21,10 @@ def generate_problem():
     
     return problem, answer
 
-input("Press ENTER to start: ")
+inpt = input("Press ENTER to start (d to enter detailed troubleshooter): ").lower()
+if inpt == 'd':
+    take_input_param()
+    
 print("--------------------------")
 start_time = time()
 for i in range(TOTAL_PROBLEMS):
