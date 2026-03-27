@@ -1,4 +1,5 @@
 from random import randint, choice
+from time import time
 
 MIN_OPERAND = 3
 MAX_OPERAND = 12
@@ -19,6 +20,9 @@ def generate_problem():
     problem = f"{operand_1} {operator} {operand_2} = "
     return problem, answer
 
+input("Press ENTER to start: ")
+print("--------------------------")
+start_time = time()
 for i in range(TOTAL_PROBLEMS):
     ques, ans = generate_problem()
     
@@ -26,6 +30,8 @@ for i in range(TOTAL_PROBLEMS):
         user_ans = input(f"Problem #{i + 1}: {ques}")
         if user_ans == str(ans):
             break
-
-print("Congratulations! You solved all the problems.")
+end_time = time()
+time_taken = end_time - start_time
+print("--------------------------")
+print(f"Congratulations! You solved all the problems in {time_taken} seconds.")
     
